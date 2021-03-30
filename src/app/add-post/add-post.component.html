@@ -1,0 +1,56 @@
+<main class="form-add-post">
+  <label class=" mb-3 fw-normal"><h4>Поділіться вашими кулінарними шедеврами!</h4>
+    Надішліть детальний рецепт приготованої вами страви з фото. Для розміщення рецепту скористайтеся формою нижче. Рецепт буде розміщено на сайті після модерації адміністратором.</label>
+  <form #form="ngForm">
+    <label for="nameRecipe" class="form-label">Назва рецепту</label>
+    <input type="text" id="nameRecipe" class="form-control" placeholder="Назва рецепту" required="" autofocus=""
+           [(ngModel)]="post.nameRecipe" name="nameRecipe">
+
+    <label for="author" class="form-label">Автор рецепту</label>
+    <input type="text" id="author" class="form-control" placeholder="автор" required="" autofocus=""
+           [(ngModel)]="post.author" name="author">
+
+    <label for="nameRecipe" class="form-label">Рівень складності</label>
+    <select class="form-select" id="hardLevel" name="hardLevel" [(ngModel)]="post.hardLevel">
+      <option >Легкий рівень</option>
+      <option>Середній рівень</option>
+      <option>Важкий рівень</option>
+    </select>
+    <div class="invalid-feedback">
+      Виберіть складність.
+    </div>
+
+    <label for="nameRecipe" class="form-label">Час приготування</label>
+    <select class="form-select" id="time" name="time" [(ngModel)]="post.time">
+      <option >До 30хв</option>
+      <option>До 1год</option>
+      <option>Більше 1год</option>
+    </select>
+    <div class="invalid-feedback">
+      Виберіть час.
+    </div>
+
+    <label for="nameRecipe" class="form-label">Інгредієнти</label>
+    <textarea class="form-control" id="ingredients" rows="5" name="ingredients"
+              required="" autofocus="" [(ngModel)]="post.ingredients"></textarea>
+
+    <label for="nameRecipe" class="form-label">Приготування</label>
+    <textarea class="form-control" id="preparation" rows="5" name="preparation"
+              required="" autofocus="" [(ngModel)]="post.preparation"></textarea>
+
+    <label for="nameRecipe" class="form-label">Фото</label><br/>
+
+    <button type="button" class="btn btn-default" style="display: none" (click)="fileInput.click()">Add Image
+      <i class="fa fa-plus"></i>
+    </button>
+
+    <input type='file' class="file-uploader" (change)="onSelectFile($event)" #fileInput/>
+
+
+    <app-cancel></app-cancel>
+    <button class="w-100 btn btn-lg btn-primary" type="submit"
+            (click)="addPost(form)">Додати рецепт</button>
+
+    <flash-messages></flash-messages>
+  </form>
+</main>

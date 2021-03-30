@@ -1,0 +1,18 @@
+<main class="form-signin">
+    <h1 class="h3 mb-3 fw-normal">Реєстрація</h1>
+    <form #form="ngForm">
+      <input type="name" id="inputName" class="form-control" placeholder="Name" required="" autofocus=""
+             [(ngModel)]="user.username" name="username">
+      <input type="email" id="inputEmail" class="form-control" placeholder="Email address" required="" autofocus=""
+             [(ngModel)]="user.email" name="email">
+      <input type="password" id="inputPassword" class="form-control" placeholder="Password" required="" autofocus=""
+             [(ngModel)]="user.password" name="password">
+
+      <app-cancel></app-cancel>
+
+      <button class="w-100 btn btn-lg btn-primary" type="submit"
+              (click)="onSubmitReg(form)">Зареєструвати</button>
+
+      <flash-messages></flash-messages>
+    </form>
+</main>

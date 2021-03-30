@@ -1,0 +1,20 @@
+
+<main class="form-fullpost">
+
+  <button class="btn btn-outline-primary mr-3" (click)="goBack()">Назад</button>
+  <div class="col" >
+    <div class="card" *ngIf="posts">
+      <div class="card-body">
+        <h3 class="card-title">{{posts.nameRecipe | uppercase}}</h3>
+        <img [src]= "posts.titleImage" style="max-height: 100%; max-width: 100%">
+      </div>
+      <ul class="list-group list-group-flush">
+        <li class="list-group-item">{{posts.hardLevel}}</li>
+        <li class="list-group-item">{{posts.time}}</li>
+        <li class="list-group-item">{{posts.author}}</li>
+        <li class="list-group-item">{{posts.ingredients}}</li>
+        <li class="list-group-item">{{posts.preparation}}</li>
+      </ul>
+    </div>
+  </div>
+</main>

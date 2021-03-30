@@ -1,0 +1,27 @@
+<form class="d-flex">
+  <input class="form-control me-2" type="search" placeholder="Search" aria-label="Search" [(ngModel)]="filterTerm"
+  name="filterTerm">
+</form>
+
+<div class="album py-5 ">
+  <div class="container">
+
+    <div class="row row-cols-1 row-cols-sm-2 row-cols-md-3 g-3" >
+      <div class="col"*ngFor="let post of posts | filter:filterTerm">
+        <div class="card shadow-sm">
+            <img [src]="post.titleImage" style="max-height: 100%; width: 100%">
+
+          <div class="card-body">
+            <p class="card-text">{{post.nameRecipe | uppercase}}</p>
+            <div class="d-flex justify-content-between align-items-center">
+              <div class="btn-group">
+                <button type="button" class="btn btn-sm btn-outline-secondary" routerLink="/fullpost/{{post.id}}">Переглянути</button>
+                <button type="button" class="btn btn-sm btn-danger" (click)="delete(post)" *ngIf="isLoggedIn">Видалити</button>
+              </div>
+            </div>
+          </div>
+        </div>
+      </div>
+    </div>
+  </div>
+</div>
